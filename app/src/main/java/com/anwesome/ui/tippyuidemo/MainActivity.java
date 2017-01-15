@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TippyUiUtil.createTippyUi(this,"Hello world i am here lets chat about code. I want to learn more and more");
+        TippyUiUtil.createTippyUi(this,"Hello there",200,200);
     }
 
 }
