@@ -60,7 +60,8 @@ public class TippyUi extends ImageView {
         messages.add(new MessageBody(msg,x,y));
         heightOfMessageView = y+=font*3;
         messageView = new MessageView(activity);
-        activity.addContentView(messageView,new ViewGroup.LayoutParams(deviceWidth,heightOfMessageView));
+        int messageWidth = (messages.size() == 1)?(int)(deviceWidth/5+(messagePaint.measureText(msg))):deviceWidth;
+        activity.addContentView(messageView,new ViewGroup.LayoutParams(messageWidth,heightOfMessageView));
         messageView.setX(deviceWidth/10);
         messageView.setY(getY()+font);
         messageView.setVisibility(INVISIBLE);
