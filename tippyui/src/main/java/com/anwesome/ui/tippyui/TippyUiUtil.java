@@ -15,5 +15,12 @@ public class TippyUiUtil {
         tippyUi.setMessageText(text);
         ((Activity)context).addContentView(tippyUi,new ViewGroup.LayoutParams(200,200));
     }
+    public static void createTippyUi(Context context,String text,float x,float y) {
+        TippyUi tippyUi = new TippyUi(context);
+        tippyUi.setX(x);
+        tippyUi.setY(y);
+        tippyUi.setMessageText(text);
+        ((Activity)context).addContentView(tippyUi,new ViewGroup.LayoutParams(200,200));
+    }
 
 }

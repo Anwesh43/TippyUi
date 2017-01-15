@@ -103,7 +103,7 @@ public class TippyUi extends ImageView {
                 prevX = getX();
                 prevY = getY();
                 setX(messageView.getX()+messageView.getMeasuredWidth()-getMeasuredWidth()/2);
-                setY(messageView.getY()+prevY+heightOfMessageView);
+                setY(messageView.getY()+heightOfMessageView);
                 setRotation(45);
                 shown = true;
                 messageView.setVisibility(VISIBLE);
@@ -150,11 +150,12 @@ public class TippyUi extends ImageView {
     private class MessageDrawable extends Drawable {
         public void draw(Canvas canvas) {
             messagePaint.setColor(Color.parseColor("#303F9F"));
-            canvas.drawRect(new RectF(0,0,deviceWidth,heightOfMessageView-2*font),messagePaint);
+            int width = canvas.getWidth(),height = canvas.getHeight();
+            canvas.drawRect(new RectF(0,0,width,(height*8/10)),messagePaint);
             Path path = new Path();
-            path.moveTo(deviceWidth-2*font,heightOfMessageView-2*font);
-            path.lineTo(deviceWidth,heightOfMessageView);
-            path.lineTo(deviceWidth,heightOfMessageView-2*font);
+            path.moveTo(8*width/10,8*height/10);
+            path.lineTo(width,height);
+            path.lineTo(width,8*height/10);
             canvas.drawPath(path,messagePaint);
             messagePaint.setColor(Color.WHITE);
             for(MessageBody messageBody:messages) {
